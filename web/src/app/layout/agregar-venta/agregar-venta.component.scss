@@ -1,0 +1,259 @@
+.alert-danger {
+  display:block;
+  margin:auto;
+  color: #721c24;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius:3px;
+  margin-bottom: 5px;
+  width: 55%;
+  height: auto;
+}
+.container-error-message{
+  padding: 3px;
+}
+
+body {
+    background-color: white;
+  //padding: 200px;
+  //margin-right: 30px;
+ // margin-left: 200px;
+  //margin-right: 100px;
+}
+label{
+  text-align: left;
+  display:block;
+  margin:auto;
+  font-weight: bold;
+}
+
+img{
+  display:block;
+  margin:auto;
+  width: 35%;
+  height: auto;
+  }
+
+form{
+  text-align: center;
+  display:block;
+  margin:auto;
+}
+
+input{
+  display:block;
+  margin:auto;
+font-weight: bold;
+width: 55%;
+height: auto;
+//width: 150px;
+}
+.option{
+  margin-right: 300px;
+  margin-left: 300px;
+}
+
+.padding{
+  margin-top: 35px;
+}
+
+.abc{
+  margin-right: 180px;
+  margin-left: 180px;
+}
+.alinearInputs {
+  float: right;
+  width: 50%;
+}
+.alinearInputs2 {
+  float: left;
+  width: 50%;
+}
+/*============ Ventas ============*/
+
+#add_product_venta{
+  display: none;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: Arial;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+h4{
+  font-size: 16px;
+}
+p{
+  font-family: Arial;
+  letter-spacing: 2px;
+  font-size: 14px;
+  line-height: 20px;
+
+}
+
+a{
+  text-decoration: none;
+  font-family: Arial;
+  letter-spacing: 1px;
+
+}
+span{
+  font-family: 'Gothambook';
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 20px;
+}
+label{
+  display: block;
+  font-size: 12pt;
+  font-family: 'Gothambook';
+  margin: 15px auto 5px auto;
+}
+input,select{
+  display: block;
+  width: 100%;
+  font-size: 11pt;
+  padding: 5px;
+  border: 1px solid #85929e;
+  border-radius: 5px;
+
+}
+.btn_new{
+  display: inline-block;
+  background: #239baa;
+  color: #FFF;
+  padding: 5px 25px;
+  border-radius: 4px;
+  margin: 20px;
+}
+table{
+  border-collapse: collapse;
+  font-size: 12pt;
+  font-family: 'arial';
+  width: 100%;
+
+}
+table th{
+  text-align: left;
+  padding: 10px;
+  background: #3d7ba8;
+  color: #FFF;
+}
+table tr:nth-child(odd){
+  background: #FFF;
+
+}
+table td{
+  padding: 10px;
+}
+.link_edit{
+  color:#0ca4ce;
+}
+.link_delete{
+  color: #f26b6b;
+}
+.link_add{
+  color: #64b13c;
+}
+.btn_cancel, .btn_ok{
+  width: 124px;
+  background: #E66262;
+  color: #FFF;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  margin: 15px;
+  font-size: 12pt;
+}
+.btn_cancel{
+  background: #42b343;
+}
+.datos_cliente, .datos_venta, .title_page{
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+#detalle_venta tr{
+  background-color: #FFF !important;
+}
+#detalle_venta td{
+  border-bottom: 1px solid #CCC;
+}
+.datos{
+  background-color: #e3ecef;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 2px solid #78909C;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.action_cliente{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  align-items: center;
+}
+
+.datos label{
+  margin: 5px auto;
+}
+.wd20{
+  width: 20%;
+}
+.wd25{
+  width: 25%;
+}
+.wd30{
+  width: 30%;
+}
+.wd40{
+  width: 40%;
+}
+.wd60{
+  width: 60%;
+}
+.wd100{
+  width: 100%;
+}
+#div_registro_cliente, #add_product_venta{
+  display: none;
+}
+.displayN{
+  display: none;
+}
+.tbl_venta{
+  max-width: 900px;
+  margin: auto;
+}
+.tbl_venta tfoot td{
+  font-weight: bold;
+}
+.textright{
+  text-align: right;
+}
+.textcenter{
+  text-align: center;
+}
+.textleft{
+  text-align: left;
+}
+.btn_anular{
+  background-color: #f36a6a;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 3px;
+  color: #FFF;
+}

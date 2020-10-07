@@ -1,0 +1,37 @@
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="color" id="sidebar-wrapper">
+      <div class="sidebar-heading">Start Bootstrap </div>
+      <div class="list-group list-group-flush">
+        <a class="nav-link" [routerLink]="['/productos']" class="list-group-item list-group-item-action color"><img
+          src="../../../../assets/iconos/supermercado.svg" width="30" height="auto"> Productos</a>
+        <a *ngIf="administrador" [routerLink]="['/AP']" class="list-group-item list-group-item-action color">
+          <img src="../../../../assets/iconos/mas.svg" width="30" height="auto"> Agregar Producto</a>
+        <!--<a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>-->
+
+        <a *ngIf="administrador" class="nav-link" [routerLink]="['/registrar']" class="list-group-item list-group-item-action color">
+          <img src="../../../../assets/iconos/anadir.svg" width="30" height="auto"> Agregar Usuario</a>
+        <a [routerLink]="['/ventas']" class="list-group-item list-group-item-action color">
+          <img src="../../../../assets/iconos/estadistica.svg" width="30" height="auto"> Ventas</a>
+        <a [routerLink]="['/agotar']" class="list-group-item list-group-item-action color">
+          <img src="../../../../assets/iconos/producto.svg" width="30" height="auto"> Productos por agotar</a>
+        <a [routerLink]="['/punto-venta']"class="list-group-item list-group-item-action color"><img src="../../../../assets/iconos/mas.svg" width="30" height="auto"> Agregar Venta</a>
+        <!--<a [routerLink]="['/lector']" class="list-group-item list-group-item-action color">
+          <img src="../../../../assets/iconos/producto.svg" width="30" height="auto">Lector de Codigo</a>-->
+        <!--<a *ngIf="administrador" class="nav-link" [routerLink]="['/registrar']" class="list-group-item list-group-item-action bg-light">Agregar Usuario</a>
+        <a [routerLink]="['/ventas']" class="list-group-item list-group-item-action bg-light">Ventas</a>
+        <a [routerLink]="['/agotar']" class="list-group-item list-group-item-action bg-light">Productos por agotar</a>
+        <a [routerLink]="['/agregar-venta']"class="list-group-item list-group-item-action bg-light">Agregar Venta</a>
+        <a [routerLink]="['/punto-venta']"class="list-group-item list-group-item-action bg-light">Punto Venta</a>-->
+
+      </div>
+    </div>
+
+  </div>
+
+
+</body>

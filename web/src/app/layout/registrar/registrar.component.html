@@ -1,0 +1,70 @@
+
+<div class="padding">
+  <br>
+  <div align="center">
+<H2>Registrar Usuario</H2>
+  </div>
+
+
+<form [formGroup]="formRegistrar">
+  <div >
+<div align="left">
+    <label for="exampleInputEmail1" class="abc" >Nombre:</label>
+</div>
+    <br>
+    <input type="text" class="form-control " id="nombre" aria-describedby="emailHelp" formControlName="nombre" >
+    <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+      <div class="container-error-message" *ngIf="nombre.errors.required">
+        Este campo es requerido
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="abc">Email:</label>
+    <br>
+    <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email" >
+    <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div class="container-error-message" *ngIf="email.errors.required">
+        Este campo es requerido
+      </div>
+      <div class="container-error-message" *ngIf="email.errors.pattern">
+        Este no es un correo valido
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="contrasena" class="abc">Contraseña:</label>
+    <br>
+    <input type="password" class="form-control" id="contrasena" name="contrasena" formControlName="password" required minlength="8" >
+    <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div class="container-error-message" *ngIf="password.errors.required">
+        Este campo es requerido
+      </div>
+      <div class="container-error-message" *ngIf="password.errors.minlength">
+        Tu contraseña debe tener al menos 8 caracteres
+      </div>
+    </div>
+  </div>
+  <div class="option">
+    <label for="rol">Rol:</label>
+    <br>
+    <select type="text" class="form-control " id="rol" name="rol" formControlName="rol" >
+      <option value="">--Selecciona una opción--</option>
+      <option value="administrador">Administrador</option>
+      <option value="vendedor">Vendedor</option>
+    </select>
+  </div>
+    <div class="alert-danger" *ngIf="rol.invalid && (rol.dirty || rol.touched)">
+      <div class="container-error-message" *ngIf="rol.errors.required">
+        Este campo es requerido
+      </div>
+
+    </div>
+  <br>
+  <button type="button" class="btn btn-dark" (click)="Registrar_usuario()" [disabled]="!formRegistrar.valid">Guardar</button>
+</form>
+  <br>
+
+</div>
+

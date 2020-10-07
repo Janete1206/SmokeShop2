@@ -1,0 +1,85 @@
+
+<body class="padding">
+  <br>
+  <div align="center">
+<H2>Agregar Nuevo Producto</H2>
+    <br>
+  </div>
+<div class="col-sm-18">
+<form [formGroup]="formRegistrar">
+  <fieldset class="alinearInputs2">
+  <div class="form-group">
+    <label for="imagen" class="abc">Imagen:</label>
+    <input type="file" class="form-control " id="imagen" aria-describedby="emailHelp" formControlName="imagen" >
+    <div class="alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+      <div class="container-error-message" *ngIf="imagen.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+    <br>
+  <div class="form-group">
+    <label for="nombre" class="abc">Nombre:</label>
+    <input type="text" class="form-control " id="nombre" aria-describedby="emailHelp" formControlName="nombre" >
+    <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+      <div class="container-error-message" *ngIf="nombre.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="descripcion" class="abc">Descripción:</label>
+    <input type="text" class="form-control " id="descripcion" aria-describedby="emailHelp" formControlName="descripcion" >
+    <div class="alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+      <div class="container-error-message" *ngIf="descripcion.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="precio" class="abc">Precio:</label>
+    <input type="number" class="form-control" id="precio" name="precio" formControlName="precio">
+    <div class="alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+      <div class="container-error-message" *ngIf="precio.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  </fieldset>
+  <fieldset class="alinearInputs">
+  <div class="form-group">
+    <label for="stock" class="abc">Stock:</label>
+    <input type="number" class="form-control" id="stock" name="stock" formControlName="stock">
+    <div class="alert-danger" *ngIf="stock.invalid && (stock.dirty || stock.touched)">
+      <div class="container-error-message" *ngIf="stock.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="stock_minimo" class="abc">Stock_Mínimo:</label>
+    <input type="number" class="form-control" id="stock_minimo" name="stock_minimo" formControlName="stock_minimo">
+    <div class="alert-danger" *ngIf="stock_minimo.invalid && (stock_minimo.dirty || stock_minimo.touched)">
+      <div class="container-error-message" *ngIf="stock_minimo.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="codigo_barras" class="abc">Código_barras:</label>
+    <input type="number" class="form-control" id="codigo_barras" name="codigo_barras" formControlName="codigo_barras">
+    <div class="alert-danger" *ngIf="codigo_barras.invalid && (codigo_barras.dirty || codigo_barras.touched)">
+      <div class="container-error-message" *ngIf="codigo_barras.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  </fieldset>
+  <br>
+  <button type="button" class="btn btn-dark" (click)="Agregar_producto()" [disabled]="!formRegistrar.valid">Guardar</button>
+</form>
+</div>
+  <br>
+</body>
+

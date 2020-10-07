@@ -1,0 +1,149 @@
+
+<body class="padding">
+  <br>
+  <div align="center">
+<H2>Agregar venta </H2>
+  </div>
+<!--<div class="col-sm-18">
+<form [formGroup]="formRegistrar">
+  <fieldset class="alinearInputs2">
+    <br>
+    <div class="form-group">
+    <label for="precio" class="abc">Nombre_vendedor:</label>
+    <input type="number" class="form-control" id="precio" name="precio" formControlName="precio">
+    <div class="alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+      <div class="container-error-message" *ngIf="precio.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  </fieldset>
+  <fieldset class="alinearInputs">
+  <div class="form-group">
+    <label for="codigo_barras" class="abc">Código_barras:</label>
+    <input type="number" class="form-control" id="codigo_barras" name="codigo_barras" formControlName="codigo_barras">
+    <div class="alert-danger" *ngIf="codigo_barras.invalid && (codigo_barras.dirty || codigo_barras.touched)">
+      <div class="container-error-message" *ngIf="codigo_barras.errors.required">
+        Campo requerido
+      </div>
+    </div>
+  </div>
+  </fieldset>
+  <br>
+  <button type="button" [disabled]="!formRegistrar.valid">Guardar</button>
+</form>
+</div>!-->
+  <br>
+</body>
+
+<div clas="datos_venta">
+  <h4>Datos de venta</h4>
+  <div class="datos">
+    <div class="wd50">
+
+      <label >vendedor</label>
+      <p>Janete</p>
+    </div>
+    <div class="wd50">
+      <label>Acciones</label>
+      <div id="acciones_venta">
+
+        <a href="#" class="btn_ok textcenter" id="btn_anular_venta">
+          <i class="fas fa-ban"></i>
+          anular
+        </a>
+        <a href="#" class="btn_new textcenter" id="btn_facturar_venta">
+          <i class="far fa-edit"></i>
+          Procesar
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<table class="tbl_venta">
+  <thead>
+    <tr>
+      <th width="100px">codigo</th>
+      <th>Nombre</th>
+      <th>Stock</th>
+      <th width="100px">Cantidad</th>
+      <th class="textright">Precio</th>
+      <th class="textright">total</th>
+      <th>Accion</th>
+
+    </tr>
+
+  <tr [formGroup]="formventa">
+
+
+
+      <td><input  type="text" name="txt_cod_producto" (keydown.enter)="venta()" formControlName="codigo_barras" id="txt_cod_producto"> </td>
+
+    <td id="txt_nombre" >-</td>
+    <td id="txt_stock" >-</td>
+    <td><input type="text"  id="txt_cant_producto" formControlName="cantidad" (keydown.enter)="total()" min="1" disabled></td>
+    <td id="txt_precio" class="textleft">0.00</td>
+    <td id="txt_total" class="text-left" >0.00</td>
+    <td><!--<a href="#" id="add_product_venta" class="link_add">
+      <i class="fas fa-plus"></i>Agregar</a></td>-->
+      <button type="button" class="btn btn-success"  (click)="enviar()">Agregar</button>
+
+  </tr>
+
+
+  <tr>
+    <th>Codigo</th>
+    <th colspan="2">Nombre</th>
+    <th>Cantidad</th>
+    <th class="textright">Precio</th>
+    <th class="textright">Precio total</th>
+    <th>Accion</th>
+  </tr>
+
+  </thead>
+  <tbody id="detalle_venta">
+  <tr>
+    <td>1</td>
+    <td colspan="2"> Pipa</td>
+    <td class="textcenter">1</td>
+    <td class="textleft"> 100.00</td>
+    <td class="textleft"> 100.00</td>
+    <td class="">
+      <button type="button" class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+      </svg></button>
+    </td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td colspan="2"> Vaporizador</td>
+    <td class="textcenter">1</td>
+    <td class="textleft"> 300.00</td>
+    <td class="textleft"> 300.00</td>
+    <td class="">
+      <!--<a class="link_delete" href="#"><i class="far fa-trash-alt"></i></a>-->
+      <button type="button" class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+      </svg></button>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="5" class="textright">SUBTOTAL Q.</td>
+    <td class="textleft">88.00 </td>
+  </tr>
+ <!-- <tr>
+    <td colspan="5" class="textright">IVA (12%)</td>
+    <td class="textleft">500</td>
+  </tr>-->
+  <tr>
+    <td colspan="5" class="textright">TOTAL Q.</td>
+    <td class="textleft">1000.00 </td>
+  </tr>
+  </tfoot>
+</table>

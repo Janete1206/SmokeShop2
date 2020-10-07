@@ -1,0 +1,38 @@
+<html>
+<body>
+
+
+
+<img src="assets/img/logosmokeshop.jpg">
+<br>
+<label for="exampleInputEmail1">Ingresa tus datos para iniciar sesión:</label>
+
+  <br>
+<form [formGroup]="formLogin">
+  <div class="form-group">
+    <label for="exampleInputEmail1"></label>
+    <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email" placeholder="Correo electrónico">
+    <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div class="container-error-message" *ngIf="email.errors.required">
+        Este campo es requerido
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="contrasena"></label>
+    <input type="password" class="form-control" id="contrasena" name="contrasena" formControlName="password" required minlength="8" placeholder="Contraseña">
+    <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div class="container-error-message" *ngIf="password.errors.required">
+        Este campo es requerido
+      </div>
+    </div>
+
+  </div>
+  <button type="button" class="btn btn-dark" (click)="login()" [disabled]="!formLogin.valid">Iniciar sesión</button>
+  <p>¿Olvidate tu contraseña? <a href="/registro" [routerLink]="['/password_recovery']">Recuperar contraseña </a></p>
+
+</form>
+
+</body>
+</html>
