@@ -15,7 +15,9 @@ class _RecoveryPageState extends State<RecoveryPage> {
   String mensaje = '';
 
   login(String email)async{
+ 
      var response = await http.post("http://192.168.1.71/smoke/api_password_recovery.php",
+     //var response = await http.post("http://192.168.10.204/smoke/api_password_recovery.php",
     body: jsonEncode(<String, String> {'email': email}));
     var respuesta = json.decode(response.body);
     print(respuesta['success']);

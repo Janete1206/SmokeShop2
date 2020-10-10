@@ -27,7 +27,7 @@ class ListaProductosA extends StatefulWidget {
 class _ListaProductosAState extends State<ListaProductosA> {
 
    Future<List<Productoa>> _getProductosA() async{
-//var data = await http.get("http://192.168.10.203/smoke/api_productoAgotar.php");
+//var data = await http.get("http://192.168.10.204/smoke/api_productoAgotar.php");
    var data = await http.get("http://192.168.1.71/smoke/api_productoAgotar.php");
     var respuesta = json.decode(data.body);
     List<Productoa> productosa = [];
