@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'AP', loadChildren: () => import('./layout/registrar-producto/registrar-producto.module').then((m) => m.RegistrarProductoModule)},
   { path: 'agotar', loadChildren: () => import('./layout/productos-agotar/productos-agotar.module').then((m) => m.ProductosAgotarModule)},
   { path: 'agregar-venta', loadChildren: () => import('./layout/agregar-venta/agregar-venta.module').then((m) => m.AgregarVentaModule)},
+  { path: 'perfil', loadChildren: () => import('./layout/perfil/perfil.module').then((m) => m.PerfilModule)},
   {
     path: 'punto-venta', loadChildren: () => import('./layout/punto-venta/punto-venta.module').then(
       (m) => m.PuntoVentaModule)

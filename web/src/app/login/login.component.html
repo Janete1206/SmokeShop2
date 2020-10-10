@@ -29,7 +29,7 @@
     </div>
 
   </div>
-  <button type="button" class="btn btn-dark" (click)="login()" [disabled]="!formLogin.valid">Iniciar sesión</button>
+  <button type="button" class="btn btn-dark" (click)="login()" (click)="jalarid(this.formLogin.value.email)" [disabled]="!formLogin.valid">Iniciar sesión</button>
   <p>¿Olvidate tu contraseña? <a href="/registro" [routerLink]="['/password_recovery']">Recuperar contraseña </a></p>
 
 </form>

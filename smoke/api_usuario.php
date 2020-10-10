@@ -11,7 +11,23 @@ $request = json_decode($postdata);
 @$contra = password_hash($password,PASSWORD_DEFAULT, ['cost'=> 10]);
 @$rol = $request -> rol;
 @$status = $request -> status;
+@$correo =  $request -> ref ;
+$args = explode('/', rtrim($_SERVER['QUERY_STRING'], '/'));
+$option = array_shift($args);
 
+switch ($option) {
+    //see profile
+      case "getPerfil";
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $query = "SELECT * from usuarios where email = '".$correo."' ";
+            $rows = dbc::consultas($query);
+            echo json_encode($rows);
+          }
+        break;
+    default:
+        echo "bad gateway";
+}
+/*
 // insertar un usuario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $query = "CALL insert_usuario('" . $nombre . "' , '" . $email . "', '" . $contra . "','" . $rol . "');";
@@ -48,3 +64,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
         echo json_encode(['success' => 0], JSON_UNESCAPED_UNICODE);
     }
 }
+*/

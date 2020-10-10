@@ -24,6 +24,7 @@ export class RegistrarProductoComponent implements OnInit {
       nombre: [ '', Validators.required],
       descripcion: [ '', Validators.required],
       precio: ['', Validators.required],
+      precio_proveedor: ['', Validators.required],
       stock: [ '', Validators.required],
       stock_minimo: ['', Validators.required],
       codigo_barras: ['', Validators.required]
@@ -40,6 +41,9 @@ export class RegistrarProductoComponent implements OnInit {
   }
   get precio(){
     return this.formRegistrar.get('precio');
+  }
+  get precio_proveedor(){
+    return this.formRegistrar.get('precio_proveedor');
   }
   get stock(){
     return this.formRegistrar.get('stock');
@@ -59,7 +63,7 @@ export class RegistrarProductoComponent implements OnInit {
     this.formRegistrar.value.imagen = this.formRegistrar.value.imagen.replace('C:\\fakepath\\', '');
     const provider = this.formRegistrar.value;
     // console.log(this.formLogin.value.usuario);
-    //  console.log(provider);
+    console.log(provider);
     this.ws.WS_AGREGARPRODUCTO(provider).subscribe(data => {
       console.log(data);
       if ( data['status'] === true){

@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="precio" class="abc">Precio:</label>
+    <label for="precio" class="abc">Precio_venta:</label>
     <input type="number" class="form-control" id="precio" name="precio" formControlName="precio">
     <div class="alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)">
       <div class="container-error-message" *ngIf="precio.errors.required">
@@ -66,6 +66,15 @@
       </div>
     </div>
   </div>
+    <div class="form-group">
+      <label for="precio" class="abc">Precio_proveedor:</label>
+      <input type="number" class="form-control" id="precio_prov" name="precio_proveedor" formControlName="precio_proveedor">
+      <div class="alert-danger" *ngIf="precio.invalid && (precio_proveedor.dirty || precio.touched)">
+        <div class="container-error-message" *ngIf="precio.errors.required">
+          Campo requerido
+        </div>
+      </div>
+    </div>
   <div class="form-group">
     <label for="codigo_barras" class="abc">Código_barras:</label>
     <input type="number" class="form-control" id="codigo_barras" name="codigo_barras" formControlName="codigo_barras">

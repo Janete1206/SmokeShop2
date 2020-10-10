@@ -24,7 +24,9 @@ export class Password_recoveryComponent implements OnInit {
       email:['', Validators.required]
     })
   }
-
+  get email(){
+    return this.formLogin.get('email');
+  }
   recuperar(){
     const provider = this.formLogin.value;
     // console.log(this.formLogin.value.usuario);

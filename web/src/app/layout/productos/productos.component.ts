@@ -15,10 +15,10 @@ import {consoleTestResultHandler} from 'tslint/lib/test';
 })
 export class ProductosComponent implements OnInit {
   public formRegistrar: FormGroup;
-  dtOptions2: DataTables.Settings={};
+  dtOptions2: DataTables.Settings = {};
   dtTrigger2: Subject<any> = new Subject();
   info: any;
-  producto = {id: '', imagen: '', nombre: '', descripcion: '', precio: '', stock: '', stock_minimo: '', codigo_barras: ''};
+  producto = {id: '', imagen: '', nombre: '', descripcion: '', precio: '', precio_proveedor: '', stock: '', stock_minimo: '', codigo_barras: ''};
   constructor(public ws: WsService, private formBuilder: FormBuilder, public router: Router, private httpClient: HttpClient) {
     // @ViewChild(DataTableDirective, {static: false}) dtElement: DataTableDirective;
     this.formulario();
@@ -44,6 +44,7 @@ export class ProductosComponent implements OnInit {
       nombre: [ '', Validators.required],
       descripcion: [ '', Validators.required],
       precio: ['', Validators.required],
+      precio_proveedor: ['', Validators.required],
       stock: [ '', Validators.required],
       stock_minimo: ['', Validators.required],
       codigo_barras: ['', Validators.required]
@@ -60,6 +61,9 @@ export class ProductosComponent implements OnInit {
   }
   get precio(){
     return this.formRegistrar.get('precio');
+  }
+  get precio_proveedor(){
+    return this.formRegistrar.get('precio_proveedor');
   }
   get stock(){
     return this.formRegistrar.get('stock');
@@ -79,9 +83,10 @@ export class ProductosComponent implements OnInit {
     //this.dtTrigger.next();
     this.dtTrigger2.next();
   }*/
-  select_product( id, imagen, nombre, descripcion, precio, stock, stockMinimo, codigoBarras){
+  select_product( id, imagen, nombre, descripcion, precio, precioProveedor, stock, stockMinimo, codigoBarras){
     this.producto = {id: id.toString(), imagen: imagen.toString(), nombre: nombre.toString(), descripcion: descripcion.toString(),
-      precio: precio.toString(), stock: stock.toString(), stock_minimo: stockMinimo.toString(),
+      precio: precio.toString(), precio_proveedor: precioProveedor, stock: stock.toString(),
+      stock_minimo: stockMinimo.toString(),
       codigo_barras: codigoBarras.toString()};
     console.log(this.producto);
     }

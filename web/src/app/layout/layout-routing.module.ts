@@ -42,6 +42,10 @@ const routes: Routes = [
       {
         path: 'lector', loadChildren: () => import('./lector/lector.module').then(
           (m) => m.LectorModule)
+      },
+      {
+        path: 'perfil', loadChildren: () => import('./perfil/perfil.module').then(
+          (m) => m.PerfilModule)
       }
 
     ]

@@ -63,4 +63,8 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+  jalarid(email) {
+    this.formLogin.value.email = email;
+    localStorage.setItem('email', this.formLogin.value.email);
+  }
 }
