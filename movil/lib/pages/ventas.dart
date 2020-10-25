@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
+import 'dart:convert';
+import 'package:movil/pages/perfil.dart';
 import 'package:movil/pages/productos.dart';
 import 'package:movil/pages/productos_agotar.dart';
 import 'package:movil/pages/proveedores.dart';
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   List<charts.Series<Venta, int>> _seriesLineData;
 
 Future<List<Venta>>_getVenta() async{
-var data = await http.get("http://192.168.1.71/smoke/traer_venta.php");
+var data = await http.get("http://192.168.10.203/smoke/traer_venta.php");
     var respuesta = json.decode(data.body);
     List<Venta> ventas = [];
 
@@ -354,6 +355,14 @@ var data = await http.get("http://192.168.1.71/smoke/traer_venta.php");
                   trailing: new Icon(Icons.supervised_user_circle),
                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) => Proveedores(),
+                  )),
+                  ), 
+                     new Divider(),
+                  new ListTile(
+                  title: new Text("Perfil"),
+                  trailing: new Icon(Icons.verified_user),
+                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => Perfil(),
                   )),
                   ), 
                     new Divider(),

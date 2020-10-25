@@ -28,7 +28,7 @@ class _ListaProductosState extends State<ListaProductos> {
 
    Future<List<Producto>> _getProductos() async{
 //var data = await http.get("http://192.168.10.203/smoke/api_producto.php");
-   var data = await http.get("http://192.168.1.71/smoke/api_producto.php");
+   var data = await http.get("http://172.16.241.93/smoke/api_producto.php");
     var respuesta = json.decode(data.body);
     List<Producto> productos = [];
 

@@ -13,6 +13,7 @@ import 'package:movil/pages/productos.dart';
 import 'package:movil/pages/ventas.dart';
 import 'package:movil/pages/proveedores.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:movil/main.dart';
 
 
 class Home extends StatelessWidget {
