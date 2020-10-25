@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'lector', loadChildren: () => import('./layout/lector/lector.module').then(
       (m) => m.LectorModule)
+  },
+  {
+    path: 'ganancias', loadChildren: () => import('./layout/ganancias/ganancias.module').then(
+      (m) => m.GananciasModule)
   }
 
 ];

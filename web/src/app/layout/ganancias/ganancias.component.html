@@ -1,6 +1,7 @@
-<div class="row">
+
+<div class="row" >
   <div class="col-12">
-    <h2>¡Productos por agotar!</h2>
+    <h2>Ganancias obtenidas en el último mes!</h2>
     <br>
     <table datatable [dtOptions]="dtOptions2" [dtTrigger]="dtTrigger2" class="table table-bordered">
       <thead class="thead-dark">
@@ -9,23 +10,22 @@
         <th>Nombre</th>
         <th>Descripción</th>
         <th>Precio</th>
-        <th>Stock</th>
-        <th>Stock_mínimo</th>
-        <th>Proveedor</th>
+        <th>Productos_vendidos</th>
+        <th>Total_venta</th>
+        <th>Ganancias</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of info" class="table-warning">
-        <td><img src={{item.imagen}} alt="" width="80" height="60"></td>
+      <tr *ngFor="let item of info">
+        <td><img src={{item.imagen}} alt="" width="60" height="60"></td>
         <td>{{item.nombre}}</td>
         <td>{{item.descripcion}}</td>
         <td>{{item.precio}}</td>
-        <td>{{item.stock}}</td>
-        <td>{{item.stock_minimo}}</td>
-        <td>{{item.proveedor}}</td>
+        <td>{{item.productos_vendidos}}</td>
+        <td>{{item.total_ventas}}</td>
+        <td>{{item.Ganancia}}</td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
-

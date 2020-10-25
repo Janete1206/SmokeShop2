@@ -11,17 +11,8 @@ if (isset($postdata)) {
     }else{
         $respuesta = "NEL";
     }
-
     echo json_encode($respuesta);
 }else{
     echo json_encode('fallo');
 }
-//foreach ($request as $value => $item) {
-  //  $a = $item->nombre;
-    //$query = "CALL insert_products('" . $a . "' ,'" . $value['nombre'] . "' , '" . $value['nombre'] . "',
-    //'" . $value['precio'] . "','" . $value['stock'] . "', '" . $value['precio'] . "', '" . $value['precio'] . "');";
-    //$respuesta = dbc::registro($query);
-    //$info['status'] = $respuesta;
-    //echo json_encode($info);
-    //echo $item;
-//}
+

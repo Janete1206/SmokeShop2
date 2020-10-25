@@ -7,8 +7,9 @@ export class WsService {
   constructor(public http: HttpClient) {
   }
   public producto = 'http://localhost/smoke/api_productos.php/';
+  public usuario = 'http://localhost/smoke/api_usuario.php/';
   WS_LOGIN(data){
-    return this.http.post('http://localhost/smoke/api_login.php', data);
+    return this.http.post(`${this.usuario}?login`, data);
   }
   // apartado productos
   // obtiene todos los productos
@@ -24,8 +25,9 @@ export class WsService {
   WS_postVenta(data){
     return this.http.post('http://localhost/smoke/post_venta.php', data);
   }
+  // Inserta usuario
   WS_REGISTRO(data){
-    return this.http.post('http://localhost/smoke/api_usuario.php', data);
+    return this.http.post(`${this.usuario}?insertaUsuario`, data);
   }
   WS_add_detalle(data){
     return this.http.post('http://localhost/smoke/add_detalle.php', data);
@@ -51,7 +53,11 @@ export class WsService {
   WS_PASSWORD(data) {
     return this.http.post('http://localhost/smoke/api_password_recovery.php', data);
   }
+  // Actualizar contraseña de usuario dentro de su perfil
   WS_UPDATE_PASSWORD(data){
-    return this.http.put('http://localhost/smoke/update_password.php', data);
+    return this.http.put(`${this.usuario}?actualizaContrasena`, data);
+  }
+  WS_GANANCIAS(){
+    return this.http.get(`${this.producto}?getGanancia`);
   }
 }

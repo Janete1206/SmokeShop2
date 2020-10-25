@@ -1,11 +1,18 @@
 <?php
-include_once ("cosas/headers.php");
-use DBC\conexion as dbc;
-require "vendor/autoload.php";
 
-$sql = "CALL tabla_grafica()";
-$rows = dbc::grafica($sql);
 
+$server = "localhost";
+$user = "root";
+$pass = "root";
+$bd = "cron";
+
+$conexion = mysqli_connect($server, $user, $pass, $bd);
+
+$sql = "Select SUM(total), MONTH(fecha) mes, YEAR(fecha) anio 
+FROM ventas GROUP By MONTH(fecha), YEAR(fecha) ORDER BY YEAR(fecha) ASC";
+//$rows = dbc::consultas($query);
+$rows = $mysqli->query($sql);
+//echo json_encode(['data'=> $rows]);
 if($rows){
 
     $meses = [1 => "Enero", 2 => "Febrero", 3 => "Marzo", 4 => "Abril", 5 => "Mayo", 6 => "Junio",
@@ -21,7 +28,7 @@ if($rows){
     foreach($rows as $row):
         $mesNum = $row['mes'];
         $row['mes'] = $meses[$mesNum];
-        $data[$row['mes']] =(double)$row['total'];
+        $data[$row['mes']] = (double)$row['total'];
 
 
         $group[$row['anio']] = $data;
@@ -42,10 +49,7 @@ if($rows){
         }
 
     endforeach;
-    // echo json_encode($result);
-    /*$fp = fopen('ventas1.json', 'w');
+    $fp = fopen('ventas2.json', 'w');
     fwrite ($fp, json_encode($result));
-    fclose($fp);*/
+    fclose($fp);
 }
-//$archivo['ventas'] = $rows;
-echo json_encode($result);

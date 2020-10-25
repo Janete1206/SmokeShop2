@@ -29,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: 'agotar', loadChildren:() => import('./productos-agotar/productos-agotar.module').then(
-          (m)=> m.ProductosAgotarModule)
+          (m) => m.ProductosAgotarModule)
       },
       {
         path: 'agregar-venta', loadChildren: () => import('./agregar-venta/agregar-venta.module').then(
@@ -46,6 +46,10 @@ const routes: Routes = [
       {
         path: 'perfil', loadChildren: () => import('./perfil/perfil.module').then(
           (m) => m.PerfilModule)
+      },
+      {
+        path: 'ganancias', loadChildren: () => import('./ganancias/ganancias.module').then(
+          (m) => m.GananciasModule)
       }
 
     ]
