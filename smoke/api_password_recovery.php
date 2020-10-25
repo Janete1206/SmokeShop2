@@ -22,7 +22,7 @@ $password =  generateRandomString();
 if($usuario != ''){
     $query = " select * from usuarios where email= '".$usuario."'";
     $result = dbc::Query($query);
-//   echo json_encode($result);
+     json_encode($result);
     if ($result[1] == 'empty'){
         echo json_encode('Usuario no existe');
     }else{

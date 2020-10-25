@@ -10,26 +10,40 @@ $request = json_decode($postdata);
 @$imagen = $request->imagen;
 $ruta="http://localhost/smoke/imagenes/".$imagen;
 @$descripcion = $request->descripcion;
-@$precio = $request->precio;
+@$precio_venta = $request->precio;
+@$precio_proveedor = $request->precio_proveedor;
 @$stock = $request-> stock;
 @$stock_minimo = $request -> stock_minimo;
 @$codigo_barras = $request -> codigo_barras;
+$args = explode('/', rtrim($_SERVER['QUERY_STRING'], '/'));
+$option = array_shift($args);
 
-// insertar un producto
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $query = "CALL insert_products('" . $ruta . "' ,'" . $nombre . "' , '" . $descripcion . "',
-    '" . $precio . "','" . $stock . "', '" . $stock_minimo . "', '" . $codigo_barras . "');";
-    $respuesta = dbc::registro($query) ;
-    $info['status'] = $respuesta;
-    echo json_encode($info);
+switch ($option) {
+    //traer todos los registros
+        case "getProducts";
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $query = "SELECT * FROM producto";
+                $rows = dbc::consultas($query);
+                echo json_encode( $rows);
+            }
+            break;
+        case "insertProduct";
+            // insertar un producto
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $query = "CALL insert_products('" . $ruta . "' ,'" . $nombre . "' , '" . $descripcion . "',
+    '" . $precio_venta . "','" . $precio_proveedor . "','" . $stock . "', '" . $stock_minimo . "', '" . $codigo_barras . "');";
+                $respuesta = dbc::registro($query) ;
+                $info['status'] = $respuesta;
+                echo json_encode($info);
+            }
+            break;
+
+    default:
+            echo "bad gateway";
 }
 
-//traer todos los registros
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $query = "SELECT * FROM view_product";
-    $rows = dbc::consultas($query);
-    echo json_encode(['data'=> $rows]);
-}
+
+
 
 // eliminar un producto
 

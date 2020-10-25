@@ -33,8 +33,13 @@ class conexion
         $db->autocommit(false);
         $error = 0;
         try{
-            $query = "INSERT INTO ventas(fecha_venta, usuarios_id) VALUES (NOW(),1);";
-            if(!$db->query($query)){
+            foreach ($data as $a => $is) {
+            $name = $is -> usuario;
+            }
+            $namee = $name;
+            $queryp = "INSERT INTO ventas(fecha_venta,status, usuario) VALUES (NOW(),'pagada', '" .$namee. "');";
+
+            if(!$db->query($queryp)){
                 $error+=1;
             }
             $ID = $db->insert_id;
@@ -45,6 +50,9 @@ class conexion
                 $stock = $item->stock;
                 $cantidad = $item->cantidad;
                 $cod = $item->codigo;
+                $actualiza_stock = $stock - $cantidad;
+
+
                 $query = "INSERT INTO producto_has_ventas(Producto_id, ventas_id, cantidad, importe) 
               VALUES (
                   $cod,
@@ -52,7 +60,10 @@ class conexion
                   $cantidad,
                   $precio
               );";
-                if(!$db->query($query)){
+                $query2 = "UPDATE producto SET stock= 
+                                            $actualiza_stock
+                                             WHERE id = $cod";
+                if(!$db->query($query) or !$db->query($query2)){
                     $error+=1;
                 }
 
@@ -93,8 +104,6 @@ class conexion
         $respuesta = $db->query($query);
         return $respuesta;
     }
-
-
     public static function Insert($query){
         $conexion = self::conn();
         if ($conexion){
@@ -110,7 +119,7 @@ class conexion
     public static function Query($query){
         $conexion = self::conn();
         if ($conexion){
-            $arreglo[] = "empty";
+            $arreglo[] = "";
             mysqli_set_charset($conexion,"utf8");
             if (! $result = mysqli_query($conexion, $query)) die();
             while($data = mysqli_fetch_assoc($result)){
@@ -123,5 +132,6 @@ class conexion
             die(error);
         }
     }
+
 
 }
