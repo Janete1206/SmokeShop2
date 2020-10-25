@@ -57,4 +57,7 @@ export class WsService {
   WS_UPDATE_PASSWORD(data){
     return this.http.put(`${this.usuario}?actualizaContrasena`, data);
   }
+  WS_GANANCIAS(){
+    return this.http.get(`${this.producto}?getGanancia`);
+  }
 }
