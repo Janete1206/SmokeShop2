@@ -42,7 +42,7 @@ class _AgregarUsuarioState extends State<AgregarUsuario> {
           "password":      "$_passwordController",
           "rol":      "$_rolController"
 
-        } ) ;
+        } ) ; 
     // = response.body.contains('error');
     var respuesta = json.decode(response.body);
     print(respuesta['success']);

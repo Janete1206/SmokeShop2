@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+<<<<<<< HEAD
 import 'package:movil/pages/perfil.dart';
 import 'dart:convert';
+=======
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
 
+import 'dart:convert';
+import 'package:movil/pages/perfil.dart';
 import 'package:movil/pages/productos.dart';
 import 'package:movil/pages/productos_agotar.dart';
 import 'package:movil/pages/proveedores.dart';
@@ -25,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   List<charts.Series<Venta, int>> _seriesLineData;
 
 Future<List<Venta>>_getVenta() async{
-var data = await http.get("http://192.168.1.71/smoke/traer_venta.php");
+var data = await http.get("http://192.168.10.203/smoke/traer_venta.php");
     var respuesta = json.decode(data.body);
     List<Venta> ventas = [];
 
@@ -367,8 +372,20 @@ drawer: Drawer(
                     builder: (BuildContext context) => Proveedores(),
                   )),
                   ), 
+<<<<<<< HEAD
 
                   new Divider(),
+=======
+                     new Divider(),
+                  new ListTile(
+                  title: new Text("Perfil"),
+                  trailing: new Icon(Icons.verified_user),
+                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => Perfil(),
+                  )),
+                  ), 
+                    new Divider(),
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
                   new ListTile(
                   title: new Text("Cerrar sesión"),
                   trailing: new Icon(Icons.exit_to_app),

@@ -38,10 +38,11 @@ class _LoginPageState extends State<LoginPage> {
 
   login(String email, password)async{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    //sharedPreferences.setString("email", email);
     //Janete
-     var response = await http.post("http://192.168.1.71/smoke/api_login.php",
+   //  var response = await http.post("http://192.168.1.71/smoke/api_login.php",
    //Jacqueline
-   //var response = await http.post("http://192.168.10.203/smoke/api_login.php",
+   var response = await http.post("http://192.168.10.203/smoke/api_login.php",
     
     body: jsonEncode(<String, String> {'email': email, 'password': password}));
     var respuesta = json.decode(response.body);
@@ -201,7 +202,11 @@ class _LoginPageState extends State<LoginPage> {
                      ),
                      onPressed: (){
                        login(controlleremail.value.text, controllerpassword.value.text);
+<<<<<<< HEAD
                        //Navigator.popAndPushNamed(context, '/home');
+=======
+                       Navigator.popAndPushNamed(context, '/ventas');
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
                      },
                    ),
                      ],

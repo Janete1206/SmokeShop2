@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:movil/main.dart';
 import 'package:movil/pages/clases.dart';
+import 'package:movil/pages/perfil.dart';
 import 'package:movil/pages/productos_agotar.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,6 +14,7 @@ import 'package:movil/pages/ventas.dart';
 import 'package:movil/pages/proveedores.dart';
 import 'package:movil/pages/perfil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:movil/main.dart';
 
 
 class Home extends StatelessWidget {
@@ -100,6 +102,17 @@ class Home extends StatelessWidget {
                   ), 
 
                   new Divider(),
+                  new ListTile(
+                  title: new Text("Perfil"),
+                  trailing: new Icon(Icons.verified_user),
+                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => Perfil(),
+                  )),
+                  ), 
+                  
+                               
+                 
+                    new Divider(),
                   new ListTile(
                   title: new Text("Cerrar sesión"),
                   trailing: new Icon(Icons.exit_to_app),
