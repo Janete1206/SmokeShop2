@@ -49,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
     if(respuesta['success'] == 1){
       print('token generado:' + respuesta['token']);
       sharedPreferences.setString("token", respuesta['token']);
+      sharedPreferences.setString("email", respuesta['email']);
       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => HomePage()), (Route<dynamic> route)=> false);
     }else if(respuesta['success'] == 0) {
       print('Error de credenciales');
@@ -200,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                      ),
                      onPressed: (){
                        login(controlleremail.value.text, controllerpassword.value.text);
-                       Navigator.popAndPushNamed(context, '/home');
+                       //Navigator.popAndPushNamed(context, '/home');
                      },
                    ),
                      ],

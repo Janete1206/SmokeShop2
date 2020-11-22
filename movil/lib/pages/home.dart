@@ -11,6 +11,7 @@ import 'package:movil/pages/agregarUsuario.dart';
 import 'package:movil/pages/productos.dart';
 import 'package:movil/pages/ventas.dart';
 import 'package:movil/pages/proveedores.dart';
+import 'package:movil/pages/perfil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -48,62 +49,64 @@ class Home extends StatelessWidget {
                     builder: (BuildContext context) => HomePage(),
                   )),
                   ),
+
+
                   new Divider(),
-               new ListTile(
+                  new ListTile(
                   title: new Text("Productos"),
-                  trailing: new Icon(Icons.view_headline),
+                  trailing: new Icon(Icons.shopping_basket),
                   onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) => Productos(),
                   )),
                   ),
       
-                  
-                               
+                              
                  new Divider(),
                   new ListTile(
-                  title: new Text("Productos Por Agotar"),
-                  trailing: new Icon(Icons.check_box),
+                  title: new Text("Productos por agotar"),
+                  trailing: new Icon(Icons.warning),
                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) => ProductosAgotar(),
                   )),
                   ), 
+
+                  new Divider(),
+                  new ListTile(
+                  title: new Text("Perfil"),
+                  trailing: new Icon(Icons.account_circle),
+                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) =>Perfil(),
+                  )),
+                  ),
                   
                                
                  new Divider(),
                  new ListTile(
                   title: new Text("Agregar Usuario"),
-                  trailing: new Icon(Icons.verified_user),
+                  trailing: new Icon(Icons.add_circle),
                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) => AgregarUsuario(),
                   )),
-                  ), 
+                  ),  
                   
                                
-                 new Divider(),
+                  new Divider(),
                   new ListTile(
                   title: new Text("Proveedores"),
-                  trailing: new Icon(Icons.supervised_user_circle),
-                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  trailing: new Icon(Icons.contacts),
+                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) => Proveedores(),
                   )),
                   ), 
-                    new Divider(),
+
+                  new Divider(),
                   new ListTile(
                   title: new Text("Cerrar sesión"),
-                  trailing: new Icon(Icons.closed_caption),
+                  trailing: new Icon(Icons.exit_to_app),
                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                     builder: (BuildContext context) => Home(),
                   )),
                   ), 
-                  
-                               
-                 new Divider(),
-               /* new ListTile(
-                  title: new Text("Registrar Usuario"),
-                  trailing: new Icon(Icons.verified_user),
-                  onTap: () => {},                  
-                ),*/
-                
               ],
       ),
       ),
