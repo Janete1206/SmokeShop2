@@ -23,6 +23,7 @@ const routes: Routes = [
     path: 'punto-venta', loadChildren: () => import('./layout/punto-venta/punto-venta.module').then(
       (m) => m.PuntoVentaModule)
   },
+  { path: 'generar', loadChildren: () => import('./layout/generar/generar.module').then((m) => m.GenerarModule)},
   { path: 'password_recovery', loadChildren: () => import('./password_recovery/password_recovery.module').then((m) => m.Password_recoveryModule) },
   {
     path: 'lector', loadChildren: () => import('./layout/lector/lector.module').then(

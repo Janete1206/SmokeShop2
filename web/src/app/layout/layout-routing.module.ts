@@ -50,6 +50,10 @@ const routes: Routes = [
       {
         path: 'ganancias', loadChildren: () => import('./ganancias/ganancias.module').then(
           (m) => m.GananciasModule)
+      },
+      {
+        path: 'generar', loadChildren: () => import('./generar/generar.module').then(
+          (m) => m.GenerarModule)
       }
 
     ]

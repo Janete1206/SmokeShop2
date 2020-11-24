@@ -1,0 +1,71 @@
+.alert-danger {
+  display:block;
+  margin:auto;
+  color: #721c24;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius:3px;
+  margin-bottom: 5px;
+  width: 55%;
+  height: auto;
+}
+.container-error-message{
+  padding: 3px;
+}
+
+body {
+  background-color: white;
+  //padding: 200px;
+  //margin-right: 30px;
+  // margin-left: 200px;
+  //margin-right: 100px;
+}
+label{
+  text-align: left;
+  display:block;
+  margin:auto;
+  font-weight: bold;
+}
+
+img{
+  display:block;
+  margin:auto;
+  width: 35%;
+  height: auto;
+}
+
+form{
+  text-align: center;
+  display:block;
+  margin:auto;
+}
+
+input{
+  display:block;
+  margin:auto;
+  font-weight: bold;
+  width: 55%;
+  height: auto;
+  //width: 150px;
+}
+.option{
+  margin-right: 300px;
+  margin-left: 300px;
+}
+
+.padding{
+  margin-top: 35px;
+}
+
+.abc{
+  margin-right: 180px;
+  margin-left: 180px;
+}
+.alinearInputs {
+  float: right;
+  width: 50%;
+}
+.alinearInputs2 {
+  float: left;
+  width: 50%;
+}

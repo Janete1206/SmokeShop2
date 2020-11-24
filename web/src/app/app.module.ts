@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard} from "./shared";
 
+// fonts provided for pdfmake
+// Set the fonts to use
 
 @NgModule({
   declarations: [

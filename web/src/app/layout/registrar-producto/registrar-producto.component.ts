@@ -23,7 +23,7 @@ export class RegistrarProductoComponent implements OnInit {
       imagen: ['', Validators.required],
       nombre: [ '', Validators.required],
       descripcion: [ '', Validators.required],
-      precio: ['', Validators.required],
+      precio_venta: ['', Validators.required],
       precio_proveedor: ['', Validators.required],
       stock: [ '', Validators.required],
       stock_minimo: ['', Validators.required],
@@ -39,8 +39,8 @@ export class RegistrarProductoComponent implements OnInit {
   get descripcion(){
     return this.formRegistrar.get('descripcion');
   }
-  get precio(){
-    return this.formRegistrar.get('precio');
+  get precio_venta(){
+    return this.formRegistrar.get('precio_venta');
   }
   get precio_proveedor(){
     return this.formRegistrar.get('precio_proveedor');
@@ -54,10 +54,10 @@ export class RegistrarProductoComponent implements OnInit {
   get codigo_barras(){
     return this.formRegistrar.get('codigo_barras');
   }
-  // resetForm(){
-  //  this.formRegistrar.reset();
-  //  this.router.navigate(['/productos']);
-  // }
+   resetForm(){
+    this.formRegistrar.reset();
+    this.router.navigate(['/productos']);
+   }
 
   Agregar_producto(){
     this.formRegistrar.value.imagen = this.formRegistrar.value.imagen.replace('C:\\fakepath\\', '');
@@ -68,7 +68,7 @@ export class RegistrarProductoComponent implements OnInit {
       console.log(data);
       if ( data['status'] === true){
         Swal.fire("Producto registrado!", "Se ha insertado un nuevo producto", "success");
-        //this.resetForm();
+        this.resetForm();
       }else if (data['status'] === false){
         Swal.fire("Error", "No puede haber productos duplicados!", "error",);
       }else{

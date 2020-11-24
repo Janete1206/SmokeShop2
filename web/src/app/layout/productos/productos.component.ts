@@ -18,7 +18,8 @@ export class ProductosComponent implements OnInit {
   dtOptions2: DataTables.Settings = {};
   dtTrigger2: Subject<any> = new Subject();
   info: any;
-  producto = {id: '', imagen: '', nombre: '', descripcion: '', precio: '', precio_proveedor: '', stock: '', stock_minimo: '', codigo_barras: ''};
+  producto = {id: '', imagen: '', nombre: '', descripcion: '', precio_venta: '',
+    precio_proveedor: '', stock: '', stock_minimo: '', codigo_barras: ''};
   constructor(public ws: WsService, private formBuilder: FormBuilder, public router: Router, private httpClient: HttpClient) {
     // @ViewChild(DataTableDirective, {static: false}) dtElement: DataTableDirective;
     this.formulario();
@@ -43,7 +44,7 @@ export class ProductosComponent implements OnInit {
       imagen: ['', Validators.required],
       nombre: [ '', Validators.required],
       descripcion: [ '', Validators.required],
-      precio: ['', Validators.required],
+      precio_venta: ['', Validators.required],
       precio_proveedor: ['', Validators.required],
       stock: [ '', Validators.required],
       stock_minimo: ['', Validators.required],
@@ -59,8 +60,8 @@ export class ProductosComponent implements OnInit {
   get descripcion(){
     return this.formRegistrar.get('descripcion');
   }
-  get precio(){
-    return this.formRegistrar.get('precio');
+  get precio_venta(){
+    return this.formRegistrar.get('precio_venta');
   }
   get precio_proveedor(){
     return this.formRegistrar.get('precio_proveedor');
@@ -83,9 +84,9 @@ export class ProductosComponent implements OnInit {
     //this.dtTrigger.next();
     this.dtTrigger2.next();
   }*/
-  select_product( id, imagen, nombre, descripcion, precio, precioProveedor, stock, stockMinimo, codigoBarras){
+  select_product( id, imagen, nombre, descripcion, precioventa, precioproveedor, stock, stockMinimo, codigoBarras){
     this.producto = {id: id.toString(), imagen: imagen.toString(), nombre: nombre.toString(), descripcion: descripcion.toString(),
-      precio: precio.toString(), precio_proveedor: precioProveedor, stock: stock.toString(),
+      precio_venta: precioventa.toString(), precio_proveedor: precioproveedor.toString(), stock: stock.toString(),
       stock_minimo: stockMinimo.toString(),
       codigo_barras: codigoBarras.toString()};
     console.log(this.producto);
@@ -111,7 +112,7 @@ export class ProductosComponent implements OnInit {
           Swal.fire("Producto eliminado!", "Se ha eliminado con exito", "success");
           this.resetForm();
         }else if (data['status'] === false){
-          Swal.fire("Error", "No puede haber productos duplicados!", "error",);
+          Swal.fire("Error", "El producto esta en ventas!", "error",);
         }else{
           Swal.fire("Error", "Se ha presentado un error, intente de nuevo!", "error",);
         }
