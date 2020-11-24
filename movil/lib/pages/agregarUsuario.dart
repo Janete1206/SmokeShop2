@@ -136,9 +136,9 @@ List<SmartSelectOption<String>> options = [
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Nuevo Usuario',
-      home: Scaffold(
+    return Scaffold(
+      //title: 'Nuevo Usuario',
+      //home: Scaffold(
         appBar: AppBar(
           title:  new Text('Agregar Usuario',),
            
@@ -235,7 +235,7 @@ List<SmartSelectOption<String>> options = [
             ],
           ),
         ),
-           drawer: Drawer(
+           /*drawer: Drawer(
         child: new ListView(
               children: <Widget>[
                 new Divider(),
@@ -304,8 +304,8 @@ List<SmartSelectOption<String>> options = [
                 
               ],
       ),
-      ),
-      ),
+      ),*/
+      //),
       
     );
   }

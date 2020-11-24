@@ -5,6 +5,15 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:movil/main.dart';
+<<<<<<< HEAD
+import 'package:movil/pages/updatePassword.dart';
+
+class Perfil extends StatelessWidget {
+  //final String email;
+
+  @override
+   Perfil(/*{Key key, @required this.email}*/) : super(/*key: key*/);
+=======
 
 /*
 updatePassword(String email, password)async{
@@ -82,6 +91,7 @@ class Perfil extends StatelessWidget {
 
   @override
    Perfil({Key key, @required this.email}) : super(key: key);
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
   Widget build(BuildContext context) {
     
     return Scaffold(
@@ -105,7 +115,10 @@ class Perfil extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+<<<<<<< HEAD
+=======
        
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
                   Ventas(text: 'Ventas Mes Actual',number: 1256.21,),
                   Column(children:
                    <Widget>[Text('Correo Electronico', style: TextStyle(
@@ -116,6 +129,46 @@ class Perfil extends StatelessWidget {
                    Text('sjackyb@hotmail.com', style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
+<<<<<<< HEAD
+                )
+                ),
+                ],
+                )
+                ],
+                ),
+              ),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) {
+                     return PasswordPage();
+                     })),
+                     child: Container(
+                       margin: new EdgeInsets.all(20.0),
+                       alignment: Alignment.center,
+                       decoration: ShapeDecoration(
+                         shape: RoundedRectangleBorder(
+                           borderRadius: BorderRadius.circular(30.0)),
+                           color: Colors.black),
+                     child: Text("Cambiar contraseña",
+                     style: TextStyle(
+                       color: Colors.white,
+                       fontSize: 18,
+                       fontWeight: FontWeight.w500
+                       )
+                       ),
+                       padding: EdgeInsets.only(top: 16, bottom: 16
+                       ),
+                    ),
+                 )
+              ],
+          ),
+      );
+  }
+}
+
+
+=======
               )),
             
                    ],
@@ -261,6 +314,7 @@ class Forms extends StatelessWidget {
 }
 
 */
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
 
 class Ventas extends StatelessWidget {
   final String text;
@@ -356,6 +410,8 @@ class Header extends StatelessWidget {
     );
   }
 }
+<<<<<<< HEAD
+=======
 
 String validatePassword(String value) {
    print("valorrr $value passsword ${_passwordController.text}");
@@ -364,3 +420,4 @@ String validatePassword(String value) {
    }
    return null;
  }
+>>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
