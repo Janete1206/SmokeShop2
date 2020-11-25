@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import {Subject} from "rxjs";
 import {DataTableDirective} from "angular-datatables";
 import Swal from 'sweetalert2';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tablas',
@@ -25,11 +26,14 @@ export class PuntoVentaComponent implements OnInit {
   public  precio = 0;
   public stock = '';
   public totales = 0 ;
+  public usuario ;
+  public  ide ;
 
-  constructor(private formBuilder: FormBuilder, public ws: WsService, private fb: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, public ws: WsService, private fb: FormBuilder, public router: Router) {
    // @ViewChild(DataTableDirective, {static: false}) dtElement: DataTableDirective;
     this.formulario();
     this.formularioCantidad();
+    this.usuario = localStorage.getItem('usuario');
   }
 
   ngOnInit() {
@@ -45,13 +49,13 @@ export class PuntoVentaComponent implements OnInit {
   }
   formulario(){
     this.formventa = this.formBuilder.group({
-      imagen: ['', Validators.required],
       nombre: [ '', Validators.required],
       descripcion: [ '', Validators.required],
       precio: ['', Validators.required],
       stock: [ '', Validators.required],
       stock_minimo: ['', Validators.required],
-      codigo_barras: ['']
+      codigo_barras: ['', Validators.required],
+      ide: ['', Validators.required],
     });
   }
 
@@ -78,6 +82,8 @@ export class PuntoVentaComponent implements OnInit {
       cantidad: [this.cantidad],
       precio: [this.precio],
       total: [total],
+      ide : [this.ide],
+      usuario: [localStorage.getItem('usuario')],
       isEditable: [true]
     });
   }
@@ -87,6 +93,7 @@ export class PuntoVentaComponent implements OnInit {
     this.cantidad = provider['cantidad'];
     const control =  this.userTable.get('tableRows') as FormArray;
     control.push(this.initiateForm());
+    $('#procesar').removeAttr('disabled');
   }
 
   deleteRow(index: number, total) {
@@ -105,17 +112,18 @@ export class PuntoVentaComponent implements OnInit {
     console.log(provider);
     this.ws.WS_postVenta(provider).subscribe(data => {
       console.log(data);
-      if ( data === 0){
+      if ( data === 1){
         Swal.fire('Exito', 'Venta procesada correctamente', 'success');
+        this.router.navigate(['/ventas']);
       }else{
         Swal.fire('Error', 'Ocurrio un error al procesar la venta', 'error');
       }
       //    //this.resetForm();
-   //  }else if (data['status'] === false){
-   //    Swal.fire("Error", "No puede haber productos duplicados!", "error",);
-   //  }else{
-   //    Swal.fire("Error", "Se ha presentado un error, intente de nuevo!", "error",);
-   //  }
+      //  }else if (data['status'] === false){
+      //    Swal.fire("Error", "No puede haber productos duplicados!", "error",);
+      //  }else{
+      //    Swal.fire("Error", "Se ha presentado un error, intente de nuevo!", "error",);
+      //  }
     });
   }
 
@@ -152,13 +160,16 @@ export class PuntoVentaComponent implements OnInit {
       // const pr = JSON.parse(JSON.stringify(data));3
       if (data !== 'ERROR') {
         const pr = data;
-        this.id = data[0]['id'];
+        this.ide = data[0]['id'];
+        this.id = data[0]['codigo_barras'];
         this.nombre = data[0]['nombre'];
-        this.precio = data[0]['precio'];
+        this.precio = data[0]['precio_venta'];
         this.stock = data[0]['stock'];
-
-
         console.log(pr);
+        $('#agreg').removeAttr('disabled');
+      }else if ( data === 0) {
+
+        Swal.fire("Error", "El producto no existe", "error",);
       }
     });
   }

@@ -15,7 +15,7 @@ export class VentasComponent implements OnInit {
   ventas: Chart;
   info: any;
   constructor(public ws: WsService) {
-    this.ws.WS_GRAFICA().subscribe(data =>{
+    this.ws.WS_GRAFICA().subscribe(data => {
     this.info = data;
       this.ventas = new Chart({
           chart: {

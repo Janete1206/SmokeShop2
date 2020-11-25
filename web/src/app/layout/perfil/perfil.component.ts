@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
   info: any;
   constructor( public ws: WsService, private formBuilder: FormBuilder, public router: Router, private httpClient: HttpClient,) {
     this.formulario();
-    httpClient.post('http://localhost/smoke/api_usuario.php/?getPerfil', {ref: this.usuario}).subscribe(data => {
+    httpClient.post('http://localhost/smoke_api/api_usuario.php/?getPerfil', {ref: this.usuario}).subscribe(data => {
       this.data = data;
       console.log(this.data);
     }, error => {

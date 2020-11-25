@@ -1,0 +1,78 @@
+<br>
+<body class="padding">
+<br>
+<div align="center">
+  <H2>Ingresa la fecha de tu reporte</H2>
+  <br>
+</div>
+<div class="col-sm-18">
+  <form [formGroup]="formRegistrar">
+    <fieldset class="alinearInputs2">
+      <br>
+      <div class="form-group">
+        <label for="fecha_inicio" class="abc">Fecha inicio:</label>
+        <input type="date" class="form-control " id="fecha_inicio" aria-describedby="emailHelp" formControlName="fecha_inicio" >
+        <div class="alert-danger" *ngIf="fecha_inicio.invalid && (fecha_inicio.dirty || fecha_inicio.touched)">
+          <div class="container-error-message" *ngIf="fecha_inicio.errors.required">
+            Campo requerido
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark" (click)="Generar_reporte_pdf()" [disabled]="!formRegistrar.valid">Generar reporte pdf</button>
+
+    </fieldset>
+
+    <fieldset class="alinearInputs">
+
+      <div class="form-group">
+
+        <br>
+        <label for="fecha_final" class="abc">Fecha final:</label>
+        <input type="date" class="form-control" id="fecha_final" name="fecha_final" formControlName="fecha_final">
+        <div class="alert-danger" *ngIf="fecha_final.invalid && (fecha_final.dirty || fecha_final.touched)">
+          <div class="container-error-message" *ngIf="fecha_final.errors.required">
+            Campo requerido
+          </div>
+        </div>
+      </div>
+
+    </fieldset>
+    <br>
+    <button type="button" class="btn btn-dark" (click)="Generar_reporte()" [disabled]="!formRegistrar.valid">Generar reporte</button>
+  </form>
+</div>
+<br>
+</body>
+
+<!--
+<div class="row" >
+  <div class="col-12">
+    <h2>Ganancias obtenidas en el último mes!</h2>
+    <br>
+    <table datatable [dtOptions]="dtOptions2" [dtTrigger]="dtTrigger2" class="table table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Productos_vendidos</th>
+        <th>Total_venta</th>
+        <th>Ganancias</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of info">
+        <td><img src={{item.imagen}} alt="" width="60" height="60"></td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.descripcion}}</td>
+        <td>{{item.precio}}</td>
+        <td>{{item.productos_vendidos}}</td>
+        <td>{{item.total_ventas}}</td>
+        <td>{{item.Ganancia}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+-->
