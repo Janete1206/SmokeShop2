@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
-<<<<<<< HEAD
 import 'package:movil/pages/perfil.dart';
 import 'dart:convert';
-=======
->>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
-
-import 'dart:convert';
-import 'package:movil/pages/perfil.dart';
 import 'package:movil/pages/productos.dart';
 import 'package:movil/pages/productos_agotar.dart';
 import 'package:movil/pages/proveedores.dart';
@@ -372,10 +366,7 @@ drawer: Drawer(
                     builder: (BuildContext context) => Proveedores(),
                   )),
                   ), 
-<<<<<<< HEAD
 
-                  new Divider(),
-=======
                      new Divider(),
                   new ListTile(
                   title: new Text("Perfil"),
@@ -385,7 +376,7 @@ drawer: Drawer(
                   )),
                   ), 
                     new Divider(),
->>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
+
                   new ListTile(
                   title: new Text("Cerrar sesión"),
                   trailing: new Icon(Icons.exit_to_app),

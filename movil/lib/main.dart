@@ -38,17 +38,17 @@ class _LoginPageState extends State<LoginPage> {
 
   login(String email, password)async{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    //sharedPreferences.setString("email", email);
     //Janete
-   //  var response = await http.post("http://192.168.1.71/smoke/api_login.php",
+    var response = await http.post("http://192.168.1.71/smoke/api_login.php",
    //Jacqueline
-   var response = await http.post("http://192.168.10.203/smoke/api_login.php",
+   //var response = await http.post("http://192.168.10.203/smoke/api_login.php",
     
     body: jsonEncode(<String, String> {'email': email, 'password': password}));
     var respuesta = json.decode(response.body);
     print(respuesta['success']);
     if(respuesta['success'] == 1){
       print('token generado:' + respuesta['token']);
+      print('usuario:' + respuesta['email']);
       sharedPreferences.setString("token", respuesta['token']);
       sharedPreferences.setString("email", respuesta['email']);
       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => HomePage()), (Route<dynamic> route)=> false);
@@ -103,9 +103,9 @@ class _LoginPageState extends State<LoginPage> {
              ), 
              Container(
                height: MediaQuery.of(context).size.height /2,
-               width: MediaQuery.of(context).size.width,
+               width: MediaQuery.of(context).size.width ,
                padding: EdgeInsets.only(
-                 top: 60
+                 top: 50
                ),
                child: Column(
                  children: <Widget>[
@@ -171,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                      alignment: Alignment.centerRight,
                      child: Padding(
                        padding: const EdgeInsets.only(
-                         top: 15,
+                         top: 2,
                          right: 32,
                        ),
                        child: Text(
@@ -202,11 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                      ),
                      onPressed: (){
                        login(controlleremail.value.text, controllerpassword.value.text);
-<<<<<<< HEAD
                        //Navigator.popAndPushNamed(context, '/home');
-=======
-                       Navigator.popAndPushNamed(context, '/ventas');
->>>>>>> 1e504a3b2444f302add469930f93afb2a3f141c7
                      },
                    ),
                      ],
@@ -251,6 +247,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
-

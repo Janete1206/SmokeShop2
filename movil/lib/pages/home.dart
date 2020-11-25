@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:movil/main.dart';
 import 'package:movil/pages/clases.dart';
+import 'package:movil/pages/ganancias.dart';
 import 'package:movil/pages/perfil.dart';
 import 'package:movil/pages/productos_agotar.dart';
 import 'dart:convert';
@@ -91,6 +92,15 @@ class Home extends StatelessWidget {
                   )),
                   ),  
                   
+
+                  new Divider(),
+                   new ListTile(
+                  title: new Text("Ganancias"),
+                  trailing: new Icon(Icons.monetization_on),
+                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => Ganancias(),
+                  )),
+                  ),
                                
                   new Divider(),
                   new ListTile(
