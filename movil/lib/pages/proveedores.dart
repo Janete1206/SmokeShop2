@@ -1,8 +1,9 @@
-import 'package:movil/pages/clases.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class Proveedores extends StatelessWidget {
   @override
@@ -47,7 +48,8 @@ class _ListaProveedoresState extends State<ListaProveedores> {
  
     return proveedores;
   }
-
+  
+ 
   
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,7 @@ class _ListaProveedoresState extends State<ListaProveedores> {
               itemCount: snapshot.data.length,
              
               itemBuilder: (BuildContext context, int index){
+                final String _phonenumber = snapshot.data[index].telefono;
 
                 return ListTile(
                   leading: /*Image.network(snapshot.data[index].imagen),*/Icon(
@@ -77,8 +80,9 @@ class _ListaProveedoresState extends State<ListaProveedores> {
                   ),
                   title: Text(snapshot.data[index].nombre),
                  subtitle: Text(snapshot.data[index].telefono),
-           
-                  onTap: (){},
+                  onTap: (){
+                    launch('tel://$_phonenumber');
+                  },
                 );
 
               },

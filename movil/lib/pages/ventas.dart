@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:movil/pages/ganancias.dart';
 import 'package:movil/pages/perfil.dart';
 import 'dart:convert';
 import 'package:movil/pages/productos.dart';
@@ -306,7 +307,7 @@ var data = await http.get("http://192.168.10.203/smoke/traer_venta.php");
               ),
             ],
           ),
-drawer: Drawer(
+ drawer: Drawer(
         child: new ListView(
               children: <Widget>[
                 new Divider(),
@@ -357,6 +358,15 @@ drawer: Drawer(
                   )),
                   ),  
                   
+
+                  new Divider(),
+                   new ListTile(
+                  title: new Text("Ganancias"),
+                  trailing: new Icon(Icons.monetization_on),
+                  onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (BuildContext context) => Ganancias(),
+                  )),
+                  ),
                                
                   new Divider(),
                   new ListTile(
@@ -367,7 +377,7 @@ drawer: Drawer(
                   )),
                   ), 
 
-                     new Divider(),
+                  new Divider(),
                   new ListTile(
                   title: new Text("Perfil"),
                   trailing: new Icon(Icons.verified_user),
@@ -375,8 +385,10 @@ drawer: Drawer(
                     builder: (BuildContext context) => Perfil(),
                   )),
                   ), 
+                  
+                               
+                 
                     new Divider(),
-
                   new ListTile(
                   title: new Text("Cerrar sesión"),
                   trailing: new Icon(Icons.exit_to_app),
